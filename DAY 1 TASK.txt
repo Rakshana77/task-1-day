@@ -1,0 +1,103 @@
+DIFFERENCE BETWEEN HTTP1.1 AND HTTP 2:
+HTTP stands for hypertext transfer protocol & it is used in client-server communication.
+HTTP user sends the request to the server and the server sends the response to the user.
+In this blog, we'll learn the key differences between these two protocols
+explore how HTTP/2 has addressed the shortcomings of its predecessor.
+HTTP/1.1 which was created in 1997 & the new one is HTTP/2 which was created in 2015.
+HTTP 1.1:
+HTTP/1.1 transfer all the requests & responses in the plain text message form.
+* The head of line blocking in which TCP connection is blocked all other requests until the response does not receive.
+* all the information related to the header file is repeated in every request.
+HTTP 2:
+* HTTP/2 works on the binary framing layer instead of textual that converts all the messages in binary format.
+* IT works on fully multiplexed that is one TCP connection is used for multiple requests.
+* HTTP/2 uses HPACK which is used to split data from header.
+* It compresses the header.
+* The server sends all the other files like CSS & JS without the request of the client using the PUSH frame
+?Multiplexing:
+    HTTP/2 introduces multiplexing, allowing multiple requests and responses to be sent over a single connection.
+This significantly improves efficiency by reducing the number of connections required,
+thereby minimizing latency and enhancing overall performance.
+
+?Header Compression:
+    In HTTP/1.1, headers were sent with each request and response, which resulted in redundant data transmission.
+HTTP/2 solves this problem with header compression, which reduces the size of headers through the use of Huffman coding.
+
+?Server Push:
+     HTTP/2 supports server push, allowing the server to send multiple responses to a single request.
+
+?Binary Protocol:
+     HTTP/2 uses a binary protocol instead of plain text, making it more efficient to parse and reducing data size.
+
+?Flow Control:
+     HTTP/2 includes flow control mechanisms to manage data transmission between the client and server, preventing overwhelming one side with data.
+
+?Priority
+     HTTP/2 allows for the prioritization of requests, ensuring that more important resources are fetched first.
+conclusion
+     here we understand the difference between HTTP 1.1 and HTTP 2.HTTP 2 several problems that the creators of HTTP 1.1 did not anticipate.
+in particular HTTP 2 is much faster and more efficient than HTTP1.1.
+
+
+
+Objects and Their Internal Representation in JavaScript
+
+Objects are a fundamental concept in JavaScript, serving as the building blocks for complex data structures.
+They allow developers to represent real-world entities, abstract data structures, and more. In this blog, we will see the objects,
+understanding how they are structured and internally represented in JavaScript.
+
+Understanding Objects in JavaScript
+      In JavaScript, an object is a collection of key-value pairs,
+      where keys are strings (or Symbols) and values can be of any data type.
+      Objects are used to model entities with properties and behaviors.
+      They can represent anything from a user profile to a car, and even more complex data structures like linked lists and graphs.
+
+Internal Representation of Objects
+    Internally, JavaScript objects are represented using various data structures.
+    While these details are abstracted away from developers,
+    understanding the general concepts can help you write more efficient code.
+
+Properties and Values:
+    Each property of an object is stored as a key-value pair.
+    The property name (key) is stored as a string, and the associated value can be of any type.
+    These pairs are stored in a manner that allows quick access based on the property name.
+
+Property Descriptor:
+        For each property, JavaScript maintains a property descriptor.
+     This descriptor contains information about the property, such as whether it's writable, enumerable, and configurable.
+     This descriptor influences how properties can be accessed and modified.
+
+Prototype Chain:
+    Objects in JavaScript can have a prototype, which is another object.
+    If a property is not found on an object, JavaScript looks for it in the prototype object,
+    creating a chain that continues until the property is found or the prototype chain ends.
+
+Hidden Classes and Inline Caching:
+    JavaScript engines often use hidden classes to optimize object property access.
+    When properties are added to an object in a specific order, the engine creates a hidden class for that order.
+    This optimization speeds up property access by utilizing inline caching, reducing the lookup time.
+
+Working with Objects
+Manipulating objects in JavaScript involves various operations:
+
+Accessing Properties:
+      You can access properties using dot notation (object.property) or
+bracket notation (object['property']).
+
+Adding and Modifying Properties:
+      Properties can be added or modified by simply assigning values to them.
+
+Deleting Properties:
+      The delete keyword removes a property from an object.
+
+Looping through Properties:
+     The for...in loop can be used to iterate through all enumerable properties of an object.
+
+Looping through Properties:
+     The for...in loop can be used to iterate through all enumerable properties of an object.
+
+Conclusion
+     Objects are allowing developers to model and manipulate data effectively.
+     Their internal representation involves property descriptors, prototype chains, and optimizations for property access.
+     Understanding these concepts can empower you to write more efficient and maintainable code.
+     Whether you're creating a simple data structure or implementing advanced algorithms, the objects is essential for success in JavaScript development.
