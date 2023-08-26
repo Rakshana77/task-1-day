@@ -1,0 +1,79 @@
+DIFFERENCE BETWEEN DOCUMENT AND WINDOW OBJECT
+
+In this blog, we will see the Document object & Window object, their various properties & methods, along with knowing their implementation & the differences between them.
+
+Document Object:
+
+The document object represents a web page that is loaded in the browser. By accessing the document object, we can access the element in the HTML page. With the help of document objects, we can add dynamic content to our web page. The document object can be accessed with a window.document or just document.Through the document object, developers can access various properties and methods to modify the content, styles, and attributes of elements on the page. Some common properties and methods of the document object include getElementById(), querySelector(), createElement(), and appendChild(). Essentially, the document object allows you to interact with the content within the HTML document.
+
+SYNTAX
+document.method_name;
+
+The lists of most commonly used methods are listed below:
+
+addEventListener(): It is used to attach an event handler to the specified element.
+
+adoptNode(): It is used to adopt a node from another document and it returns a node object, representing the adopted node.
+
+close(): It is used to close the output stream.
+
+createAttribute(): It is used to create an attribute node with the specified name and returns the attribute object.
+
+Window Object
+The window object is the topmost object of the DOM . It represents a browser window or frame that displays the contents of the webpage.On the other hand, the window object represents the browser window or tab that contains the web page. It provides a global context for the JavaScript code running within the web page. The window object various properties and methods that deal with the browser's dimensions, navigation, and interactions. Properties like window.innerWidth, window.innerHeight, and window.location enable developers to gather information about the browser's dimensions and current URL. Additionally, the window object is responsible for functions such as window.open(), which can open new browser windows or tabs.
+
+
+Syntax:
+
+window.property_name;
+
+
+The methods of Window objects that are commonly used are listed in the below table:
+
+alert(): It is used to display an alert box. It displays a specified message along with an OK button and is generally used to make sure that the information comes through the user.
+
+atob(): It is used for decoding a base-64 encoded string. It is used to decode a string of data that has been encoded using the btoa() method.
+
+blur(): It is used to remove focus from the current window.
+
+
+
+document
+ It represents any HTML document or web page that is loaded in the browser.
+window
+ It represents a browser window or frame that displays the contents of the webpage.   
+
+document
+ It is loaded inside the window.
+window
+ It is the very first object that is loaded in the browser.
+
+document
+ It is the object of window property.
+window
+ It is the object of the browser.
+
+document
+ All the tags, elements with attributes in HTML are part of the document.
+window
+ Global objects, functions, and variables of JavaScript are members of the window object.
+
+document
+ We can access the document from a window using the window.document
+window
+ We can access the window from the window only. i.e. window.window
+
+document
+ The document is part of BOM (browser object model) and dom (Document object model)
+window
+ The window is part of BOM, not DOM.
+
+document
+ Properties of document objects such as title, body, cookies, etc can also be accessed by a window like this window. document.title
+window
+ Properties of the window object cannot be accessed by the document object
+
+conclusion
+     In summary, while both the document and window objects play crucial roles in JavaScript and web development, they serve distinct purposes. The document object is primarily concerned with the content and structure of the web page, offering methods for manipulation and interaction with elements. On the other hand, the window object provides access to the browser environment, window management, timers, navigation, and storage.
+
+Understanding the differences between these two objects is essential for effective web development. By leveraging their unique functionalities, developers can create dynamic and interactive web pages that respond to user actions while also managing the broader browser environment.
