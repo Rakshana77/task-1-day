@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form and Table Example</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #container {
+        width: 70%;
+      }
+
+      form {
+        margin-bottom: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: white;
+      }
+
+      button {
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <script src=" https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+    
+    <div id="container">
+      <h1 id="title">Survey Form</h1>
+      <br />
+      <p id="description">Please fill out the survey form below:</p>
+      <br />
+      <form id="survey-form">
+        <div class="form-group">
+          <label for="first-name" id="name-label">First Name:</label>
+          <input
+            type="text"
+            id="first-name"
+            placeholder="Enter your first name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="last-name" id="last-name-label">Last Name:</label>
+          <input
+            type="text"
+            id="last-name"
+            placeholder="Enter your last name"
+            required
+          />
+        </div>
+
+        
+        <br />
+        <br />
+        <label for="pincode">Pincode:</label>
+        <input
+          type="text"
+          id="pincode"
+          pattern="\d{6}"
+          title="Enter a 6-digit pincode"
+          required
+        />
+        <br />
+        <br />
+<div class="form-group">
+        <label for="email" id="email-label">Email:</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+        <label for="gender">Gender:</label>
+        <select id="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <br />
+        <br />
+
+        <label><h4>Choice of Food choose any 2:</h4></label>
+        <br />
+        <br />
+        <div>
+          <input type="radio" id="food1" name="food" value="food1" />
+          <label for="food1">dosa</label>
+
+          <input type="radio" id="food2" name="food" value="food2" />
+          <label for="food2">idly</label>
+
+          <input type="radio" id="food3" name="food" value="food3" />
+          <label for="food3">biryani</label>
+
+          <input type="radio" id="food4" name="food" value="food4" />
+          <label for="food4">meals</label>
+
+          <input type="radio" id="food5" name="food" value="food5" />
+          <label for="food5">vegrice</label>
+        </div>
+        <br />
+         <div class="form-group">
+        <label for="comments" id="comments-label">Comments:</label>
+        <textarea id="comments" rows="4" cols="50"></textarea>
+      </div>
+<br/>
+
+
+
+        <button type="button" onclick="submitForm()">Submit</button>
+
+        <button type="button" onclick="clearForm()">Clear</button>
+      </form>
+    </div>
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Pincode</th>
+            <th>Gender</th>
+            <th>Food Choices</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script>
+      function submitForm() {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const pincode = document.getElementById("pincode").value;
+        const gender = document.getElementById("gender").value;
+        const foodChoices = Array.from(
+          document.querySelectorAll('input[name="food"]:checked')
+        ).map((checkbox) => checkbox.value);
+
+        if (foodChoices.length !== 2) {
+          alert("Please choose exactly 2 food options.");
+          return;
+        }
+
+        const table = document
+          .getElementById("dataTable")
+          .getElementsByTagName("tbody")[0];
+        const newRow = table.insertRow(table.rows.length);
+        const cells = [
+          newRow.insertCell(0),
+          newRow.insertCell(1),
+          newRow.insertCell(2),
+          newRow.insertCell(3),
+          newRow.insertCell(4),
+        ];
+
+        cells[0].innerText = firstName;
+        cells[1].innerText = lastName;
+        cells[2].innerText = pincode;
+        cells[3].innerText = gender;
+        cells[4].innerText = foodChoices.join(", ");
+
+        clearForm();
+      }
+
+      function clearForm() {
+        document.getElementById("myForm").reset();
+      }
+    </script>
+  </body>
+</html>
+<!-- --------------------------------------------------------------- -->

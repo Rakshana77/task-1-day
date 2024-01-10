@@ -1,0 +1,328 @@
+// all prime numbers in anonymous fn
+let arr = function (n) {
+
+    let prime = []
+    for (let i = 1; i <= n; i++) {
+        let count = 0
+        for (let j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                count++;
+                break;
+            }
+        }
+
+        if ((count == 0) && (i != 1))
+            prime.push(i)
+    }
+    console.log(prime)
+}
+
+ arr(10)
+    // all prime number in array IIFE
+    ((n) => {
+
+        let prime = []
+        for (let i = 1; i <= n; i++) {
+            let count = 0
+            for (let j = 2; j <= i / 2; j++) {
+                if (i % j == 0) {
+                    count++;
+                    break;
+                }
+            }
+
+            if ((count == 0) && (i != 1))
+                prime.push(i)
+        }
+        console.log(prime)
+    })
+
+    (10)
+
+// // all prime number in array arrow function
+let arr = (n) => {
+    let prime = []
+    for (let i = 1; i <= n; i++) {
+        let count = 0;
+        for (let j = 2; j <= i / 2; j++) {
+            if (i % j == 0) {
+                count++;
+                break;
+            }
+
+        }
+        if ((count == 0) && (i != 1)) {
+            prime.push(i)
+        }
+
+
+    }
+    console.log(prime)
+}
+arr(10)
+---------------------------------------------------------------------------------------
+// captial letter in starting string anonymous
+
+// let fun = function (a) {
+//     let b = a.split(' ')
+//     for (let i = 0; i != b.length; i++) {
+
+//         b[i] = b[i].charAt(0).toUpperCase() + b[i].slice(1)
+//     }
+//     let c = b.join(" ")
+//     console.log(c)
+// }
+// fun("hi i am rakshana")
+//arrow fn
+let fun = (a) => {
+    let b = a.split(' ')
+    for (let i = 0; i != b.length; i++) {
+
+        b[i] = b[i].charAt(0).toUpperCase() + b[i].slice(1)
+    }
+    let c = b.join(" ")
+    console.log(c)
+}
+fun("hi i am rakshana")
+
+// // IIFE
+    ((a) => {
+        let b = a.split(' ')
+        for (let i = 0; i != b.length; i++) {
+
+            b[i] = b[i].charAt(0).toUpperCase() + b[i].slice(1)
+        }
+        let c = b.join(" ")
+        console.log(c)
+    })
+    ("hi i am rakshana")
+------------------------------------------------------------------------------------------
+// odd num in array anonuymous
+let arr = function (a) {
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] % 2 != 0) {
+            console.log(a[i])
+        }
+    }
+}
+arr(a = [1, 2, 3, 4, 5, 6]);
+
+// odd num in array IIFE 
+((a) => {
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] % 2 != 0) {
+            console.log(a[i])
+        }
+    }
+})
+    (a = [1, 2, 3, 4, 5, 6]);
+
+
+// odd num in array arrow
+let arr = (a) => {
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] % 2 != 0) {
+            console.log(a[i])
+
+        }
+    }
+}
+arr(a = [1, 2, 3, 4, 5, 6]);
+------------------------------------------------------------------------------------------
+// palindrome  IIFE
+
+
+( (a) => {
+    let b = []
+    for (let i in a) {
+        let s = a[i].split('').reverse().join('')
+        if (s == a[i]) {
+            b.push(a[i]);
+
+        }
+
+    }
+    console.log(b)
+})
+(a = ["sona", "rakshana", "aba", "madam", "abcba"])
+
+// arrow function
+let palindrome= (a) => {
+    let b = []
+    for (let i in a) {
+        let s = a[i].split('').reverse().join('')
+        if (s == a[i]) {
+            b.push(a[i]);
+
+        }
+
+    }
+    console.log(b)
+}
+palindrome(a = ["sona", "rakshana", "aba", "madam", "abcba"])
+// anonymous fn
+let palindrome = function (a) {
+    let b = []
+    for (let i in a) {
+        let s = a[i].split('').reverse().join('')
+        if (s == a[i]) {
+            b.push(a[i]);
+
+        }
+
+    }
+    console.log(b)
+}
+palindrome(a = ["sona", "rakshana", "aba", "madam", "abcba"])
+--------------------------------------------------------------------------------
+// remove duplicate anonymous
+let arr = function () {
+
+    let unique = []
+    for (let i in a) {
+        if (!unique.includes(a[i])) {
+            unique.push(a[i])
+
+        }
+    }
+    console.log(unique)
+}
+arr(a = [2, 3, 2, 4, 2, 3, 5, 6, 4, 7, 5, 8, 7])
+
+    // Remove duplicate IIFE
+
+    ((a) => {
+        let unique = [];
+        for (let i in a) {
+            if (!unique.includes(a[i])) {
+                unique.push(a[i])
+            }
+        }
+        console.log(unique)
+    })
+   (a = [2, 3, 2, 4, 2, 3, 5, 6, 4, 7, 5, 8, 7]);
+--------------------------------------------------------------------------------
+// rotate array k times IIFE
+
+    ((a, K) => {
+        for (let i = 0; i < K; i++) {
+            (a.unshift(a.pop()))
+        }
+        return a
+    })
+    (a = [1, 2, 3, 4, 5, 6, 7], K = 4)
+console.log(a)
+// anonymous
+let arr = function (a, K) {
+    for (let i = 0; i < K; i++) {
+        (a.unshift(a.pop()))
+    }
+    return a
+}
+arr(a = [1, 2, 3, 4, 5, 6, 7], K = 4)
+console.log(a)
+// arrow fn
+let arr = (a, K) => {
+    for (let i = 0; i < K; i++) {
+        (a.unshift(a.pop()))
+    }
+    return a
+}
+arr(a = [1, 2, 3, 4, 5, 6, 7], K = 4)
+console.log(a)
+------------------------------------------------------------
+// sum of all numbers in array anonymous
+let arr = function (a) {
+    let sum = 0
+    for (let i = 0; i < a.length; i++) {
+        a[i] = parseInt(a[i])
+        sum += a[i]
+
+    }
+    console.log(sum)
+}
+ arr(a = [1, 8, 3, 0, 5, 2])
+
+    // sum of all numbers in array IIFE
+    ((a) => {
+        let sum = 0
+        for (let i = 0; i < a.length; i++) {
+            a[i] = parseInt(a[i])
+            sum += a[i]
+
+        }
+        console.log(sum)
+    })
+    (a = [1, 8, 3, 0, 5, 2])
+
+// // sum of all numbers in array arrow
+ let arr = (a) => {
+    let sum = 0
+    for (let i = 0; i < a.length; i++) {
+        a[i] = parseInt(a[i])
+        sum += a[i]
+
+    }
+    console.log(sum)
+}
+arr(a = [1, 8, 3, 0, 5, 2])
+-------------------------------------------------------
+// return midean of two sorted arrays same size anonymous
+//let fun = function (a, b) {
+//     let c = a.concat(b);
+//     function compare(a, b) {
+//         return a - b;
+//     }
+//     c.sort(compare);
+//     console.log(c)
+
+//     let sum;
+//     for (let i = (c.length) / 2; i >= 0; i--) {
+//         // console.log(c[i])
+//         sum = (c[i] + c[i + 1]) / 2
+//         break;
+
+//     }
+//     console.log(sum)
+// }
+
+// fun(a = [19, 11, 1, 4, 7, 9],
+//     b = [55, 31, 15, 8, 10, 15])
+// arrow fn
+// let fun = (a, b) => {
+//     let c = a.concat(b);
+//     function compare(a, b) {
+//         return a - b;
+//     }
+//     c.sort(compare);
+//     console.log(c)
+//  let sum;
+//     for (let i = (c.length) / 2; i >= 0; i--) {
+//         // console.log(c[i])
+//         sum = (c[i] + c[i + 1]) / 2
+//         break;
+
+//     }
+//     console.log(sum)
+// }
+// fun(a = [57, 34, 78, 26, 43], b = [21, 52, 9, 67, 24])
+//IIFE
+    ((a, b) => {
+        let c = a.concat(b);
+        function compare(a, b) {
+            return a - b;
+        }
+        c.sort(compare);
+        console.log(c)
+
+        let sum;
+        for (let i = (c.length) / 2; i >= 0; i--) {
+            // console.log(c[i])
+            sum = (c[i] + c[i + 1]) / 2
+            break;
+
+        }
+        console.log(sum)
+    })
+    (a = [57, 34, 78, 26, 43], b = [21, 52, 9, 67, 24])
+----------------------------------------------------------------------------------------

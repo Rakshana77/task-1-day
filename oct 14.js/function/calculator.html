@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #calculator {
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 48px;
+        height: 48px;
+        margin: 5px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      #result {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 768px) {
+        #calculator {
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script src=" https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+    <div id="calculator" class="container">
+      <h1 id="title">calculator</h1>
+      <br />
+      <p id="description">Please press the numbers:</p>
+      <br />
+      <div id="result">0</div>
+      <input type="text" id="display" disabled class="form-control" />
+      <div>
+        <button class="btn btn-secondary" onclick="appendCharacter('1')">
+          1
+        </button>
+        <button class="btn btn-secondary" onclick="appendCharacter('2')">
+          2
+        </button>
+        <button class="btn btn-secondary" onclick="appendCharacter('3')">
+          3
+        </button>
+        <button class="btn btn-primary" onclick="setOperator('+')">+</button>
+      </div>
+      <div>
+        <button class="btn btn-secondary" onclick="appendCharacter('4')">
+          4
+        </button>
+        <button class="btn btn-secondary" onclick="appendCharacter('5')">
+          5
+        </button>
+        <button class="btn btn-secondary" onclick="appendCharacter('6')">
+          6
+        </button>
+        <button class="btn btn-primary" onclick="setOperator('-')">-</button>
+      </div>
+      <div>
+        <button class="btn btn-secondary" onclick="appendCharacter('7')">
+          7
+        </button>
+        <button class="btn btn-secondary" onclick="appendCharacter('8')">
+          8
+        </button>
+        <button class="btn btn-secondary" onclick="appendCharacter('9')">
+          9
+        </button>
+        <button class="btn btn-primary" onclick="setOperator('*')">*</button>
+      </div>
+      <div>
+        <button class="btn btn-secondary" onclick="appendCharacter('0')">
+          0
+        </button>
+        <button class="btn btn-danger" onclick="clearDisplay()">C</button>
+        <button class="btn btn-success" onclick="calculate()">=</button>
+        <button class="btn btn-primary" onclick="setOperator('/')">/</button>
+      </div>
+    </div>
+
+    <script>
+      let currentInput = "";
+      let operator = "";
+      let resultDisplayed = false;
+
+      function appendCharacter(character) {
+        if (resultDisplayed) {
+          clearDisplay();
+          resultDisplayed = false;
+        }
+        currentInput += character;
+        updateDisplay();
+      }
+
+      function setOperator(op) {
+        if (currentInput !== "") {
+          operator = op;
+          currentInput += " " + operator + " ";
+          updateDisplay();
+        }
+      }
+
+      function calculate() {
+        if (currentInput !== "") {
+          try {
+            const result = eval(currentInput);
+            document.getElementById("result").innerText = result;
+            currentInput = result.toString();
+            resultDisplayed = true;
+          } catch (error) {
+            alert("Invalid expression");
+            clearDisplay();
+          }
+        }
+      }
+
+      function clearDisplay() {
+        currentInput = "";
+        operator = "";
+        updateDisplay();
+      }
+
+      function updateDisplay() {
+        document.getElementById("display").value = currentInput;
+      }
+
+      document.addEventListener("keydown", function (event) {
+        const key = event.key;
+        if (/\d/.test(key)) {
+          appendCharacter(key);
+        } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+          setOperator(key);
+        } else if (key === "Enter") {
+          calculate();
+        } else if (key === "Escape") {
+          clearDisplay();
+        }
+      });
+    </script>
+  </body>
+</html>

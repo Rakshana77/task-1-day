@@ -1,0 +1,154 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 0px;
+    min-width: 100vw;
+    display: flex;
+}
+
+.navbar {
+    min-width: none;
+    background-color: rgb(67, 71, 67);
+    padding: 2px;
+}
+
+h2 {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+.container2 {
+    display: flex;
+    min-width: none;
+    padding: 10px;
+    background-color: rgb(216, 255, 216);
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+
+}
+
+.box1 {
+    margin: 30px;
+
+    padding: 2px;
+    height: 500px;
+    width: 300px;
+    background-color: rgb(67, 71, 67);
+    border-radius: 30px;
+}
+
+.box2 {
+    margin: 20px;
+    padding: 2px;
+    height: auto;
+    width: auto;
+   
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.search {
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(69, 69, 69);
+    font-weight: bold;
+    border-radius: 20px;
+    display: flex;
+}
+
+
+.threebox {
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.box2 {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.smallbox {
+    border-radius: 20px;
+    margin: 20px;
+    padding: 2px;
+    height: 110px;
+    width: 160px;
+    /* flex-wrap: wrap; */
+    background-color: rgb(69, 69, 69);
+}
+
+.longbar {
+    background-color: rgb(69, 69, 69);
+    padding: 9px;
+    height: 90px;
+    border-radius: 9px;
+}
+
+@media screen and (max-width: 900px) {
+    .container2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box1,
+    .box2 {
+        width: 100%;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box1 {
+        height: auto;
+    }
+
+    .threebox {
+        flex-direction: column;
+    }
+   
+}
+
+
+    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"integrity="sha512-73glpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANT9QpRohGRT"> -->
+</head>
+<body>
+    <div class="container">
+
+        <div class="navbar">
+            <div class="icon">
+               
+                <i class="fa-brands fa-square-github fa-4x"></i>
+
+            </div>
+            <h2 class ="text" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"></h2>
+            <h2>GITHUB</h2>
+        </div>
+<div class="container2">
+    <div class="box1">1</div>
+<div class="box2">
+    <input class="search" type="text" placeholder="search..."/>
+    <div class="threebox">
+      <div class="smallbox"></div>
+      <div class="smallbox"></div>
+      <div class="smallbox"></div>
+    </div>
+    <div class="longbar"></div>
+
+</div>
+    </div>
+</body>
+</html>
