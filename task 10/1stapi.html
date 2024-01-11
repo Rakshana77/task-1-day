@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Random Dog</title>
+  </head>
+
+  <body>
+    <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js "></script>
+    <div id="container">
+      <img id="image" />
+
+      <button id="button" onclick="get_random_dog_imag()">Random</button>
+    </div>
+  </body>
+
+  <style>
+    body {
+      background-color: #f0ecdb;
+
+      display: flex;
+
+      justify-content: center;
+    }
+
+    #container {
+      width: 50%;
+
+      height: 680px;
+
+      background-color: yellow;
+    }
+
+    #image {
+      width: 100%;
+
+      height: 500px;
+
+      border: 2px solid #fff;
+
+      box-sizing: border-box;
+    }
+
+    #button {
+      width: 200px;
+
+      height: 50px;
+
+      float: left;
+
+      margin-left: 240px;
+
+      border: none;
+
+      outline: none;
+
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      background-color: whitesmoke;
+
+      color: #000;
+    }
+  </style>
+</html>
+
+<script>
+  function display_image(image_url) {
+    image.innerHTML = "";
+    document.getElementById("image").src = image_url;
+  }
+  const get_random_dog_imag = async () => {
+    try {
+      const response = await fetch("https://dog.ceo/api/breeds/image/random");
+
+      const data = await response.json();
+      // data.message = display_image;
+      display_image(data.message);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  get_random_dog_imag();
+</script>
